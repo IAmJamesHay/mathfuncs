@@ -2,7 +2,7 @@
 % Please edit documentation in R/maths_functions.R
 \name{toUnitScale}
 \alias{toUnitScale}
-\title{Transforms a given value from the scale of min-max to 0-1, either directly from a linear scale or via a log scale}
+\title{toUnitScale}
 \usage{
 toUnitScale(y, min = 1, max = 100, logflag = FALSE, logbase = 10)
 }

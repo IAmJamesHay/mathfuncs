@@ -2,7 +2,7 @@
 % Please edit documentation in R/maths_functions.R
 \name{transform_logistic}
 \alias{transform_logistic}
-\title{Transforms a given value from between -Inf and Inf to xmin and xmax}
+\title{Custom logistic transformation}
 \usage{
 transform_logistic(x, xmin, xmax)
 }

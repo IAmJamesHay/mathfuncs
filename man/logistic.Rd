@@ -2,7 +2,7 @@
 % Please edit documentation in R/maths_functions.R
 \name{logistic}
 \alias{logistic}
-\title{Converts a given value from the scale of -Inf and +Inf to 0 and 1}
+\title{Logistic function}
 \usage{
 logistic(p)
 }

@@ -2,7 +2,7 @@
 % Please edit documentation in R/maths_functions.R
 \name{logit}
 \alias{logit}
-\title{Converts a given value from the scale of 0 and 1 to between -Inf and Inf}
+\title{Logit function}
 \usage{
 logit(p)
 }

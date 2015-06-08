@@ -2,7 +2,7 @@
 % Please edit documentation in R/maths_functions.R
 \name{transform_logit}
 \alias{transform_logit}
-\title{Transforms a given value from between to xmin and xmax to -Inf and Inf}
+\title{Custom logit transform}
 \usage{
 transform_logit(x, xmin, xmax)
 }
