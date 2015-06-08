@@ -1,5 +1,6 @@
+#'Logit function
+#' 
 #' Converts a given value from the scale of 0 and 1 to between -Inf and Inf
-#'
 #' @param p numeric value to be converted
 #' @return numeric value of the converted input
 #' @seealso \code{\link{logistic}} returns the inverse value (ie. the logistic function)
@@ -10,8 +11,9 @@ logit <- function(p){
   return(log(p/(1-p)))
 }
 
+#'Logistic function
+#' 
 #' Converts a given value from the scale of -Inf and +Inf to 0 and 1
-#'
 #' @param p numeric value to be converted
 #' @return numeric value of the converted input
 #' @seealso \code{\link{logistic}} returns the inverse value (ie. the logit function)
@@ -23,8 +25,9 @@ logistic <- function(p){
   return(1/(1+exp(-p)))
 }
 
+#' Custom logistic transformation
+#' 
 #' Transforms a given value from between -Inf and Inf to xmin and xmax
-#'
 #' @param x numeric value to be scaled
 #' @param xmin numeric value representing the lower bound of the new scale
 #' @param xmax numeric value representing the upper bound of the new scale
@@ -37,9 +40,9 @@ transform_logistic <- function(x, xmin, xmax){
     y <- (xmax-xmin)/(1 + exp(-x)) + xmin
     return(y)
 }
-
-#' Transforms a given value from between to xmin and xmax to -Inf and Inf
+#' Custom logit transform
 #' 
+#' Transforms a given value from between to xmin and xmax to -Inf and Inf
 #' @param x numeric value to be scaled
 #' @param xmin numeric value representing the lower bound of the old scale
 #' @param xmax numeric value representing the upper bound of the old scale
@@ -52,9 +55,9 @@ transform_logit <- function(x, xmin, xmax){
     y <- -log(((xmax-xmin)/(x-xmin))-1)
     return(y)
 }
-
-#' Transforms a given value from the scale of min-max to 0-1, either directly from a linear scale or via a log scale
+#' toUnitScale
 #' 
+#' Transforms a given value from the scale of min-max to 0-1, either directly from a linear scale or via a log scale
 #' @param y numeric value to be transformed
 #' @param min the bottom of the linear scale. Defaults to 1
 #' @param max the top of the linear scale. Defaults to 100
@@ -75,7 +78,8 @@ toUnitScale <- function(y, min=1,max=100,logflag=FALSE,logbase=10){
     }
     rtn
 }
-
+#' fromUnitScale
+#' 
 #' Transforms a given value from the scale of 0-1 to min-max, either directly to a linear scale or via a log scale
 #' @param x numeric value to be transformed
 #' @param min the bottom of the linear scale. Defaults to 1
