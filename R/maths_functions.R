@@ -39,6 +39,7 @@ transform_logistic <- function(x, xmin, xmax){
 }
 
 #' Transforms a given value from between to xmin and xmax to -Inf and Inf
+#' 
 #' @param x numeric value to be scaled
 #' @param xmin numeric value representing the lower bound of the old scale
 #' @param xmax numeric value representing the upper bound of the old scale
@@ -52,8 +53,19 @@ transform_logit <- function(x, xmin, xmax){
     return(y)
 }
 
-
-# Converts x from scale min to max to 0 to 1
+#' Transforms a given value from the scale of min-max to 0-1, either directly from a linear scale or via a log scale
+#' 
+#' @param y numeric value to be transformed
+#' @param min the bottom of the linear scale. Defaults to 1
+#' @param max the top of the linear scale. Defaults to 100
+#' @param logflag Optional flag to convert to a unit scale via the log scale. Defaults to FALSE
+#' @param logbase Optional numeric value to be used as the base for the log scale
+#' @return numeric value with the converted input
+#' @seealso \code{\link{fromUnitScale}} inverse function
+#' @export
+#' @examples
+#' toUnitScale(65,20,80)
+#' toUnitScale(15,0,16,TRUE,10)
 toUnitScale <- function(y, min=1,max=100,logflag=FALSE,logbase=10){
     if(logflag){
         rtn <- (log(y,logbase)-log(min,logbase))/(log(max,logbase)-log(min,logbase))
@@ -64,7 +76,18 @@ toUnitScale <- function(y, min=1,max=100,logflag=FALSE,logbase=10){
     rtn
 }
 
-# Converts x from scale 0 to 1 back to scale min to max
+#' Transforms a given value from the scale of 0-1 to min-max, either directly to a linear scale or via a log scale
+#' @param x numeric value to be transformed
+#' @param min the bottom of the linear scale. Defaults to 1
+#' @param max the top of the linear scale. Defaults to 100
+#' @param logflag Optional flag to convert to a unit scale via the log scale. Defaults to FALSE
+#' @param logbase Optional numeric value to be used as the base for the log scale
+#' @return numeric value with the converted input
+#' @seealso \code{\link{toUnitScale}} inverse function
+#' @export
+#' @examples
+#' fromUnitScale(0.5,20,80)
+#' fromUnitScale(0.33,0,16,TRUE,10)
 fromUnitScale <- function(x,min=1,max=100,logflag=FALSE,logbase=10){
     if(logflag){
         rtn <- min*logbase^(x*(log(max,logbase)-log(min,logbase)))

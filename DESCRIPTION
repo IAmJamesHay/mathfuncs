@@ -1,8 +1,8 @@
 Package: mathfuncs
-Title: What the Package Does (one line, title case)
-Version: 0.0.0.9000
-Authors@R: person("First", "Last", email = "first.last@example.com", role = c("aut", "cre"))
-Description: What the package does (one paragraph)
+Title: Some helpful mathematical functions
+Version: 1.0.1
+Authors@R: person("James", "Hay", email = "jameshay218@gmail.com", role = c("aut", "cre"))
+Description: This package contains a number of mathematical functions that I have found repeatedly useful in my work. At the moment, these are primarily numeric conversion functions
 Depends: R (>= 3.2.0)
-License: What license is it under?
+License: None whatsoever - sorry!
 LazyData: true
